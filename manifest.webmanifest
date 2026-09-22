@@ -1,0 +1,19 @@
+{
+  "name": "The Last Guy",
+  "short_name": "Last Guy",
+  "description": "Battle royale 2D estilo Stumble Guys: corra, pule, sobreviva — vence o último de pé.",
+  "lang": "pt-BR",
+  "start_url": "./?src=pwa",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "landscape",
+  "background_color": "#32b7fd",
+  "theme_color": "#0569c8",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

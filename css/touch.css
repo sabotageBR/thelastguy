@@ -1,0 +1,115 @@
+/* Controles de toque (joystick à esquerda, pulo à direita), estilo dos mockups. */
+#touch { display: none; }
+#touch.on { display: block; }
+
+#touch .tz {
+  position: absolute;
+  top: 22%;
+  bottom: 0;
+  width: 50%;
+  pointer-events: auto;
+  touch-action: none;
+}
+#touch .tz-left { left: 0; }
+#touch .tz-right { right: 0; }
+
+#touch .joy {
+  --r: var(--joy-r, 56px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--r) * 2);
+  height: calc(var(--r) * 2);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(148, 213, 252, 0.35) 0 58%, rgba(7, 103, 191, 0.55) 60% 100%);
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 3px 0 rgba(3, 50, 110, 0.5);
+  opacity: 0.45;
+  pointer-events: none;
+  will-change: transform;
+}
+#touch .joy.active { opacity: 0.9; }
+#touch .joy-knob {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: #b4e2fb;
+  border: 3px solid #ffffff;
+  box-shadow: inset 0 -4px 0 #7cc4ef, 0 2px 0 rgba(3, 50, 110, 0.5);
+  will-change: transform;
+}
+#touch .joy-arrow {
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -7px;
+  border: 7px solid transparent;
+}
+#touch .joy-arrow.l { left: 6%; border-right: 9px solid rgba(255, 255, 255, 0.9); }
+#touch .joy-arrow.r { right: 6%; border-left: 9px solid rgba(255, 255, 255, 0.9); }
+
+#touch .tbtn {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#touch .tbtn-jump {
+  --d: var(--jump-d, 88px);
+  width: var(--d);
+  height: var(--d);
+  right: calc(20px + var(--sa-r));
+  bottom: 20px;
+  background: radial-gradient(circle at 50% 40%, #147bd6 0 55%, #0864bc 56% 100%);
+  border: 4px solid #ffffff;
+  box-shadow: 0 5px 0 #04407e, inset 0 -5px 0 rgba(0, 0, 0, 0.18);
+  opacity: 0.9;
+}
+#touch .tbtn-jump.lh { right: auto; left: calc(20px + var(--sa-l)); }
+#touch .tbtn.pressed { transform: translateY(4px); box-shadow: 0 1px 0 #04407e; }
+#touch .arrow-up {
+  width: 38%;
+  height: 44%;
+  background: #ebf7fd;
+  clip-path: polygon(50% 0, 100% 50%, 70% 50%, 70% 100%, 30% 100%, 30% 50%, 0 50%);
+}
+#touch .tbtn-dive {
+  width: calc(var(--jump-d, 88px) * 0.62);
+  height: calc(var(--jump-d, 88px) * 0.62);
+  right: calc(20px + var(--sa-r) + var(--jump-d, 88px) * 0.95);
+  bottom: calc(20px + var(--jump-d, 88px) * 0.5);
+  background: #fc4da5;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 0 #832162;
+  opacity: 0.9;
+}
+#touch .tbtn-dive.lh { right: auto; left: calc(20px + var(--sa-l) + var(--jump-d, 88px) * 0.95); }
+#touch .arrow-dive {
+  width: 50%;
+  height: 34%;
+  background: #fff;
+  clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%);
+}
+#touch .tarrow {
+  width: calc(var(--joy-r, 56px) * 1.4);
+  height: calc(var(--joy-r, 56px) * 1.4);
+  bottom: 20px;
+  background: rgba(7, 103, 191, 0.6);
+  border: 3px solid #fff;
+  border-radius: 16px;
+}
+#touch .tarrow-l { left: calc(20px + var(--sa-l)); }
+#touch .tarrow-r { left: calc(40px + var(--sa-l) + var(--joy-r, 56px) * 1.4); }
+#touch .tarrow::after {
+  content: '';
+  border: 14px solid transparent;
+}
+#touch .tarrow-l::after { border-right: 18px solid #fff; margin-right: 14px; }
+#touch .tarrow-r::after { border-left: 18px solid #fff; margin-left: 14px; }
+#touch .tarrow.pressed { background: rgba(7, 103, 191, 0.9); }

@@ -1,0 +1,133 @@
+/* Base: reset, fonte, variáveis e layout de tela cheia sem gestos do navegador. */
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('../assets/fonts/PixelifySans-VF.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --px: 2px;              /* px CSS por pixel virtual (definido pelo JS) */
+  --vw: 480;
+  --vh: 270;
+  --game-left: 0px;
+  --game-w: 100vw;
+  --game-h: 100vh;
+  --sa-t: env(safe-area-inset-top, 0px);
+  --sa-r: env(safe-area-inset-right, 0px);
+  --sa-b: env(safe-area-inset-bottom, 0px);
+  --sa-l: env(safe-area-inset-left, 0px);
+  --font: 'Pixelify Sans', 'Trebuchet MS', system-ui, sans-serif;
+  --ink: #0f151f;
+  --paper: #fdfdfd;
+  --bevel: #dce0e3;
+  --blue: #0569c8;
+  --blue-top: #4792d4;
+  --blue-dark: #035ab6;
+  --sky: #32b7fd;
+  --gold: #fcd223;
+  --red: #e6313a;
+  --green: #38b54a;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a1a33;
+  overscroll-behavior: none;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  -webkit-font-smoothing: none;
+  text-rendering: optimizeSpeed;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--sky);
+}
+
+#game {
+  position: absolute;
+  left: 0;
+  top: 0;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  touch-action: none;
+  outline: none;
+}
+
+#hud, #touch, #screens, #rotate, #toast {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#hud { z-index: 10; }
+#touch { z-index: 20; }
+#screens { z-index: 30; }
+#toast { z-index: 40; }
+#rotate { z-index: 50; }
+
+[hidden] { display: none !important; }
+
+button, input, select { font-family: inherit; }
+
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  touch-action: manipulation;
+}
+
+.noscript {
+  color: #fff;
+  font: 16px sans-serif;
+  padding: 24px;
+}
+
+/* Aviso de orientação (celular em retrato). */
+#rotate {
+  pointer-events: auto;
+  background: #0a1a33;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#rotate .rotate-box p {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 16px 24px 0;
+  text-shadow: 2px 2px 0 #000;
+}
+#rotate .rotate-phone {
+  width: 44px;
+  height: 76px;
+  margin: 0 auto;
+  border: 4px solid #fff;
+  border-radius: 8px;
+  animation: rot 1.6s steps(8) infinite;
+}
+@keyframes rot {
+  0%, 30% { transform: rotate(0deg); }
+  60%, 100% { transform: rotate(-90deg); }
+}

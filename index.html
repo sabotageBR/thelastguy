@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>The Last Guy</title>
+  <meta name="description" content="Battle royale 2D estilo Stumble Guys: corra, pule, sobreviva — vence o último de pé.">
+  <meta name="theme-color" content="#0569c8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Last Guy">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/PixelifySans-VF.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/hud.css">
+  <link rel="stylesheet" href="css/touch.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="480" height="270"></canvas>
+    <div id="hud" aria-live="polite"></div>
+    <div id="touch"></div>
+    <div id="screens"></div>
+    <div id="rotate" hidden>
+      <div class="rotate-box">
+        <div class="rotate-phone"></div>
+        <p>Gire o aparelho para jogar na horizontal</p>
+      </div>
+    </div>
+    <div id="toast" hidden></div>
+    <noscript><p class="noscript">The Last Guy precisa de JavaScript.</p></noscript>
+  </div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
